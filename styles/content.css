@@ -1,0 +1,348 @@
+.header {
+    width: 100%;
+    max-height: 544px;
+    height: 544px;
+    background: var(--bg-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    height: 136px;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 69px;
+    height: 100%;
+    width: max-content;
+    padding-left: 0;
+}
+
+.letters-group {
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.letter {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 88.16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 96.97px;
+    word-wrap: break-word;
+    flex-shrink: 0;
+}
+
+.letter.i {
+    transform: rotate(270deg);
+}
+
+.letter.b {
+    margin-right: 7px;
+}
+
+.letter.v {
+    margin: auto 15px;
+    transform: rotate(270deg);
+}
+
+.letter.m {
+    width: min-content;
+    transform: rotate(90deg);
+    padding-right: 8px;
+}
+
+.word {
+    color: var(--text-color);
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 100px;
+    word-wrap: break-word;
+    flex-shrink: 0;
+}
+
+.word1 {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 100px;
+    word-wrap: break-word;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--text-color);
+    color: transparent;
+    padding: 5px 10px;
+    flex-shrink: 0;
+}
+
+/* Анимации движения */
+@keyframes moveRight {
+
+    0%,
+    100% {
+        transform: translateX(-150px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes moveLeft {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-100px);
+    }
+}
+
+@keyframes moveRightSlow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(50px);
+    }
+}
+
+@keyframes moveLeftFast {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-150px);
+    }
+}
+
+/* Анимация для буквы V */
+@keyframes fadeV {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: rotate(270deg) scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(270deg) scale(1);
+    }
+}
+
+/* Применение анимаций к контейнерам */
+.container-1 .content {
+    animation: moveRight 4s ease-in-out infinite;
+}
+
+.container-2 .content {
+    animation: moveLeft 3.5s ease-in-out infinite;
+}
+
+.container-3 .content {
+    animation: moveRightSlow 5s ease-in-out infinite;
+}
+
+.container-4 .content {
+    animation: moveLeftFast 2.5s ease-in-out infinite;
+}
+
+/* Анимация для всех букв V */
+.letter.v {
+    animation: fadeV 3s ease-in-out infinite;
+}
+
+@media (max-width: 1280px) {
+    .header {
+        max-height: 400px;
+        height: 400px;
+    }
+
+    .container {
+        height: 100px;
+    }
+
+    .content {
+        gap: 40px;
+    }
+
+
+    .letter {
+        font-size: 70px;
+        line-height: 80px;
+    }
+
+    .word,
+    .word1 {
+        font-size: 64px;
+        line-height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        max-height: 300px;
+        height: 300px;
+    }
+
+    .container {
+        height: 75px;
+    }
+
+    .content {
+        gap: 20px;
+    }
+
+    .letter {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .word,
+    .word1 {
+        font-size: 45px;
+        line-height: 55px;
+    }
+
+    /* Уменьшаем амплитуду анимации на мобильных */
+    @keyframes moveRight {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(50px);
+        }
+    }
+
+    @keyframes moveLeft {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(-50px);
+        }
+    }
+
+    @keyframes moveRightSlow {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(25px);
+        }
+    }
+
+    @keyframes moveLeftFast {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(-75px);
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .header {
+        max-height: 200px;
+        height: 200px;
+    }
+
+    .container {
+        height: 50px;
+        transform: scale(0.4);
+        transform-origin: left center;
+    }
+
+    .content {
+        gap: 10px;
+    }
+
+    .letter {
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    .word,
+    .word1 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .container-2 {
+        left: -100px;
+        top: 50px;
+    }
+
+    .container-3 {
+        left: -50px;
+        top: 100px;
+    }
+
+    .container-4 {
+        left: -200px;
+        top: -50px;
+    }
+}
+
+.main-content {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-section {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.content-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
