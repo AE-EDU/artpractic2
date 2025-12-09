@@ -7,9 +7,9 @@
 
 
 :root {
-  --bg-color: #fff269;
-  --text-color: #4c2712;
-  --grid-line-color: #A57C47;
-  --grid-bg-color: #ffe790;
+  --bg-color: #FFF269;
+  --text-color: #BB77CC;
+  --grid-line-color: #B98139;
+  --grid-bg-color: #FFE791;
   --grid-gap: 50px;
 }

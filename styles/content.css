@@ -184,7 +184,7 @@
     min-height: 2426px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto 481px;
+    grid-template-rows: auto auto auto;
     gap: var(--grid-gap);
     padding: var(--grid-gap);
     background-color: var(--grid-line-color);
@@ -208,10 +208,6 @@
     justify-content: center;
 }
 
-.cell-7 {
-    grid-column: 1 / -1;
-    min-height: 481px;
-}
 
 .grid-image {
     width: 100%;
@@ -279,17 +275,142 @@
     animation: gentleWobble 1.9s ease-in-out infinite;
 }
 
-.cell-7 .cell-content {
+.footer {
+    width: 100%;
+    height: 702px;
+    position: relative;
+    background: #EEC1F9;
+    overflow: hidden;
+}
+
+.footer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #EEC1F9;
+    z-index: 1;
+}
+
+.footer-logo-bivium {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 635px;
+    height: 169px;
+    z-index: 3;
     display: flex;
     align-items: center;
     justify-content: center;
-     background: var(--bg-color);
+}
+
+.logo-bivium {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer-running-line {
+    position: absolute;
+    top: 354px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #FFF269;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.running-line-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.running-line-text {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: runningLine 30s linear infinite;
+    padding-left: 100%;
+}
+
+.running-line-text span {
+    color: #BB77CC;
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 100px;
+    margin-right: 100px;
+}
+
+@keyframes runningLine {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.footer-logo-hse {
+    position: absolute;
+    left: 24px;
+    bottom: 0;
+    width: 376px;
+    height: 163px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-hse {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer-info {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 24px 24px 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer-name {
+    color: #4C2712;
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.footer-group {
+    color: #4C2712;
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.2;
 }
 
 
 @media (max-width: 1280px) {
     .header {
-        max-height: 400px;
         height: 400px;
     }
 
@@ -324,16 +445,48 @@
         min-height: 2000px;
     }
 
-    .grid-cell:not(.cell-7) {
-        min-height: 450px;
-    }
-
-    .cell-7 {
+    .grid-cell {
         min-height: 400px;
     }
 
     .grid-image {
         height: calc(100vw/2 - 80px);
+    }
+
+    .footer {
+        height: 600px;
+    }
+
+    .footer-logo-bivium {
+        top: 70px;
+        width: 500px;
+        height: 135px;
+    }
+
+    .footer-running-line {
+        top: 300px;
+        height: 85px;
+    }
+
+    .running-line-text span {
+        font-size: 26px;
+        line-height: 85px;
+        margin-right: 80px;
+    }
+
+    .footer-logo-hse {
+        width: 300px;
+        height: 130px;
+        left: 20px;
+    }
+
+    .footer-info {
+        padding: 0 20px 20px 0;
+    }
+
+    .footer-name,
+    .footer-group {
+        font-size: 26px;
     }
 }
 
@@ -428,7 +581,7 @@
 
     .grid-container {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
         --grid-gap: 30px;
         padding: 30px;
         min-height: auto;
@@ -436,21 +589,48 @@
     }
 
     .grid-cell {
-        min-height: 400px;
-        grid-column: 1;
-    }
-
-    .grid-cell:not(.cell-7) {
         min-height: 350px;
-    }
-
-    .cell-7 {
         grid-column: 1;
-        min-height: 400px;
     }
 
     .grid-image {
         height: calc(100vw - 60px);
+    }
+
+    .footer {
+        height: 500px;
+    }
+
+    .footer-logo-bivium {
+        top: 50px;
+        width: 350px;
+        height: 95px;
+    }
+
+    .footer-running-line {
+        top: 200px;
+        height: 70px;
+    }
+
+    .running-line-text span {
+        font-size: 20px;
+        line-height: 70px;
+        margin-right: 60px;
+    }
+
+    .footer-logo-hse {
+        width: 200px;
+        height: 86px;
+        left: 15px;
+    }
+
+    .footer-info {
+        padding: 0 15px 15px 0;
+    }
+
+    .footer-name,
+    .footer-group {
+        font-size: 20px;
     }
 }
 
@@ -496,14 +676,50 @@
     }
 
     .grid-cell {
-        min-height: 150px;
-    }
-
-    .grid-cell:not(.cell-7) {
         min-height: 250px;
     }
 
     .grid-image {
         height: calc(100vw - 30px);
+    }
+
+    .footer {
+        height: 350px;
+    }
+
+    .footer-logo-bivium {
+        top: 30px;
+        width: 220px;
+        height: 60px;
+    }
+
+    .footer-running-line {
+        top: 140px;
+        height: 50px;
+    }
+
+    .running-line-text span {
+        font-size: 14px;
+        line-height: 50px;
+        margin-right: 30px;
+    }
+
+    .footer-logo-hse {
+        width: 120px;
+        height: 52px;
+        left: 8px;
+    }
+
+    .footer-info {
+        padding: 0 8px 8px 0;
+    }
+
+    .footer-name {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .footer-group {
+        font-size: 14px;
     }
 }
